@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.babosamo.ktxdagger.MainActivity
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
-@Component
+//@Singleton
+@Component(modules = [MainModule::class, ViewModelModule::class])
 interface MainComponent {
 
     fun inject(mainActivity: MainActivity)
@@ -14,6 +16,5 @@ interface MainComponent {
     interface Factory {
         fun create(@BindsInstance activity: AppCompatActivity): MainComponent
     }
-
 
 }

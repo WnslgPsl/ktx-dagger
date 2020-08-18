@@ -5,26 +5,28 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-//    @Inject
-//    lateinit var viewModelProvider: ViewModelProvider
+    @Inject
+    lateinit var viewModelProvider: ViewModelProvider
 //    @Inject
 //    lateinit var viewModelFactory: ViewModelFactory
 
-        private val mainViewModel: MainViewModel by viewModels()
+//        private val mainViewModel: MainViewModel by viewModels()
 //    private val mainViewModel: MainViewModel = viewModelProvider[MainViewModel::class.java]
 
-//    private val mainViewModel: MainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        val daggerComponent = DaggerMainComponent.factory().create(this)
-//        daggerComponent.inject(this)
+        val daggerComponent = DaggerMainComponent.factory().create(this)
+        daggerComponent.inject(this)
 
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
