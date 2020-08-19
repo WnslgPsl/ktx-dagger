@@ -7,11 +7,11 @@ import com.babosamo.ktxdagger.di.AssistedSavedStateViewModelFactory
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 
-class MainViewModel @AssistedInject constructor(@Assisted private val handle: SavedStateHandle) : ViewModel() {
+class MainViewModel @AssistedInject constructor(@Assisted private val savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    private var id = handle["id"] ?: 0
+    private var id = savedStateHandle["id"] ?: 0
         set(value) {
-            handle["id"] = value
+            savedStateHandle["id"] = value
             field = value
         }
 
