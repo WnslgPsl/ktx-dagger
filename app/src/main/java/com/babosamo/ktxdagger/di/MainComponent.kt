@@ -1,16 +1,17 @@
 package com.babosamo.ktxdagger.di
 
 import androidx.appcompat.app.AppCompatActivity
-import com.babosamo.ktxdagger.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
-//@Singleton
-@Component(modules = [MainModule::class, ViewModelModule::class])
+@Component(modules = [ViewModelModule::class, RepositoryModule::class])
+@Singleton
 interface MainComponent {
 
-    fun inject(mainActivity: MainActivity)
+
+    @ActivityScope
+    fun mainActivityComponentBuilder() : MainActivityComponent.Builder
 
     @Component.Factory
     interface Factory {
